@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "blog-fe"
+    }
+  },
+  "defaultProject": "blog-fe",
+  "cli": {
+    "analytics": false
+  }
 }
