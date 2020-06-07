@@ -24,12 +24,12 @@ export class LoginRegisterComponent implements OnInit {
     })
 
     this.registerForm = this.fb.group({
+      email: this.fb.control('', [Validators.required, Validators.email]),
       username: this.fb.control('', [Validators.required, Validators.minLength(4)]),
       pwGroup: this.fb.group({
-        password: this.fb.control('',[Validators.required, Validators.minLength(6)]),
-        confirmPassword: this.fb.control('',[Validators.required, Validators.minLength(6)])
-      }, {validators: comparePassword}),
-      email: this.fb.control('', [Validators.required, Validators.email])
+        password: this.fb.control('',[Validators.required, Validators.minLength(4)]),
+        confirmPassword: this.fb.control('',[Validators.required, Validators.minLength(4)])
+      }, {validators: comparePassword})
     })
   }
 

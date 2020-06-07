@@ -18,32 +18,46 @@
           <h4 class="font-alt">Login</h4>
           <hr class="divider-w mb-10" />
           <!-- Login form -->
-          <form class="form" [formGroup] = "loginForm" (ngSubmit)="onSubmitLogin()">
+          <form
+            class="form"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmitLogin()"
+          >
             <div class="form-group">
               <input
                 class="form-control"
-                id="username"
                 type="text"
-                name="username"
                 placeholder="Username"
                 formControlName="username"
               />
             </div>
-            <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">
-                Username invalid
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="
+                loginForm.get('username').invalid &&
+                loginForm.get('username').touched
+              "
+            >
+              Username invalid
             </div>
             <div class="form-group">
               <input
                 class="form-control"
-                id="password"
                 type="password"
-                name="password"
                 placeholder="Password"
                 formControlName="password"
               />
             </div>
-            <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
-                Password invalid
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="
+                loginForm.get('password').invalid &&
+                loginForm.get('password').touched
+              "
+            >
+              Password invalid
             </div>
             <div class="form-group">
               <button class="btn btn-round btn-b" type="submit">Login</button>
@@ -55,52 +69,68 @@
           <h4 class="font-alt">Register</h4>
           <hr class="divider-w mb-10" />
           <!-- Register form -->
-          <form class="form" [formGroup] = "registerForm" (ngSubmit)="onSubmitRegister()">
+          <form
+            class="form"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmitRegister()"
+          >
             <div class="form-group">
               <input
                 class="form-control"
-                id="E-mail"
-                type="text"
-                name="email"
+                type="email"
                 placeholder="Email"
                 formControlName="email"
               />
             </div>
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="
+                registerForm.get('email').invalid &&
+                registerForm.get('email').touched
+              "
+            >Invalid email</div>
             <div class="form-group">
               <input
                 class="form-control"
-                id="username"
                 type="text"
-                name="username"
                 placeholder="Username"
                 formControlName="username"
               />
             </div>
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="
+                registerForm.get('username').invalid &&
+                registerForm.get('username').touched
+              "
+            >Invalid username</div>
             <fieldset formGroupName="pwGroup">
               <div class="form-group">
-              <input
-                class="form-control"
-                id="password"
-                type="password"
-                name="password"
-                placeholder="Password"
-                formControlName="password"
-              />
+                <input
+                  class="form-control"
+                  type="password"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="password"
+                  placeholder="Re-enter Password"
+                  formControlName="confirmPassword"
+                />
+              </div>
+            </fieldset>
+            <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('pwGroup').invalid && registerForm.get('pwGroup').touched">
+                Invalid password
             </div>
             <div class="form-group">
-              <input
-                class="form-control"
-                id="re-password"
-                type="password"
-                name="re-password"
-                placeholder="Re-enter Password"
-                formControlName="confirmPassword"
-              />
-            </div>  
-            </fieldset>
-            
-            <div class="form-group">
-              <button class="btn btn-block btn-round btn-b" type="submit">Register</button>
+              <button class="btn btn-block btn-round btn-b" type="submit">
+                Register
+              </button>
             </div>
           </form>
         </div>
@@ -109,4 +139,3 @@
   </section>
   <app-footer></app-footer>
 </div>
-
